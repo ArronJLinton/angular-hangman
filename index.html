@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Hangman App</title>
-	<!-- Linking Angularjs Library -->
+	<!-- Linking Materialize CSS -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Linking style.css -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Linking Angularjs Library -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<!-- Linking app.js -->
 	<script src="app.js" ></script>
@@ -15,16 +18,19 @@
 
 <!-- Need to use {{}} brackets to call $scope -->
 <div>
-	<div class="incorrectGuesses">
+	<div class="guesses remaining">
 	Guesses Left: {{guesses}}</div>
-	<div>
-		Your Correct Guesses: 
+
+	<div class="correctGuesses">
+		<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_up</i>
 		<!-- ng-repeat is going to repeat the span or in other  -->
 		<span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
 	</div>
+	<div class="incorrectGuesses">
+		<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_down</i>
+		<span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
+	</div>
 
-	<div>
-		Your Incorrect Guesses: <span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span></div>
 	<div>
 
 
