@@ -8,7 +8,7 @@ var app = angular.module("HangmanApp", []);
 // This will be linked to the body of the index page
 // We pass in $scope which will be used in the entire app controller and also be available in index.html
 // Dependency injections? 
-app.controller("GameController", ['$scope', function($scope){
+app.controller("GameController", ['$scope', '$timeout', function($scope, $timeout){
 // any parameter assigned to $scope will be available in the html page
 
 var words = ["judith", "renford", "brittany", "jon", "arron"];
@@ -26,7 +26,7 @@ $scope.input = {
 
 // function that will select random word
 function selectRandomWord(){
-	var index = Math.round(Math.random()*words.length);
+	var index = Math.floor(Math.random()*words.length);
 	console.log(index);
 	return words[index];
 	}
@@ -80,17 +80,24 @@ function newGame() {
 	if(correct){
 		$scope.correctLettersChosen.push($scope.input.letter.toLowerCase());
 	}else{
-		$scope.incorrectLettersChosen.push($scope.input.letter.toLowerCase());
 		$scope.guesses--;
+		$scope.incorrectLettersChosen.push($scope.input.letter.toLowerCase());
 	}
 	$scope.input.letter = "";
 
-	if($scope.guesses==0){
-		alert("You Lose")
-		newGame();
-	}else if($scope.displayWord == selectWord){
-		alert("You Win!")
-		newGame();
+
+	if($scope.guesses == 0){
+		alert("You Lost! Oh no..")
+		$timeout(function() {
+			newGame();
+		}, 1000);
+	}
+	// If the index of the underscore placeholer is -1, then this means the user guessed all the correct letters and they win
+	else if($scope.displayWord.indexOf("_ ") == -1){
+		alert("You Win! Oh Yes Oh Yes!")
+		$timeout(function() {
+			newGame();
+		}, 1000);
 	}
 
 }
