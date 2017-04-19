@@ -20,22 +20,24 @@
 <div>
 	<div class="guesses remaining">
 	Guesses Left: {{guesses}}</div>
-
-	<div class="correctGuesses">
-		<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_up</i>
-		<!-- ng-repeat is going to repeat the span or in other  -->
-		<span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+	
+	<div class="guesses">
+		<div class="correctGuesses">
+			<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_up</i>
+			<!-- ng-repeat is going to repeat the span or in other  -->
+			<span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+		</div>
+		<div class="incorrectGuesses">
+			<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_down</i>
+			<span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
+		</div>
 	</div>
-	<div class="incorrectGuesses">
-		<i class="correct-icon material-icons" style="font-size:60px;color:#009688;">thumb_down</i>
-		<span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
-	</div>
-
-	<div>
+	<div class="displayWord">
 
 
 	You have to Guess: {{displayWord}}
 	</div>
+
 		<div>
 			<!-- ng-model is used to link some of the data in the controller with the ng-model inside this input tag  -->
 			<input type="text" name="guess" ng-model="input.letter">

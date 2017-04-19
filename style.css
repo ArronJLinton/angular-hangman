@@ -1,4 +1,17 @@
 
+
 body {
     background: rgba(50, 120, 125, 0.35);
+}
+
+.correctGuesses {
+    
+}
+.incorrectGuesses {
+    float: left;
+    margin-left: 80%;
+}
+
+.displayWord {
+    clear: both;
 }
