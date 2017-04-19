@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman App</title>
+	<!-- Linking Angularjs Library -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<!-- Linking app.js -->
+	<script src="app.js" ></script>
+</head>
+
+<!-- ng-app is native to angularjs. It identifies the root element the app should begin with, which is the body in this example -->
+<!-- ng-controller is native to angularjs. It provides a link to the controller that is declared in app.js -->
+<body ng-app="HangmanApp" ng-controller="GameController">
+
+<!-- Need to use {{}} brackets to call $scope -->
+<div>
+	<div>Guesses Left: {{guesses}}</div>
+	<div>
+		Your Correct Guesses: 
+		<!-- ng-repeat is going to repeat the span or in other  -->
+		<span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+	</div>
+
+	<div>
+		Your Incorrect Guesses: <span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span></div>
+	<div>
+
+
+	You have to Guess: {{displayWord}}
+	</div>
+		<div>
+			<!-- ng-model is used to link some of the data in the controller with the ng-model inside this input tag  -->
+			<input type="text" name="guess" ng-model="input.letter">
+			<!-- ng-click calls the onClick function "letterChosen()" in app.js  -->
+			<button ng-click="letterChosen()">Submit</button>
+		</div>
+
+</div>
+
+</body>
+</html>
