@@ -40,9 +40,11 @@
 
 		<div class="userInput">
 			<!-- ng-model is used to link some of the data in the controller with the ng-model inside this input tag  -->
-			<input type="text" name="guess" ng-model="input.letter">
+			<input class="input" type="text" name="guess" ng-model="input.letter">
 			<!-- ng-click calls the onClick function "letterChosen()" in app.js  -->
-			<button ng-click="letterChosen()">Submit</button>
+			<button class="btn waves-effect waves-light" ng-click="letterChosen()" type="submit" name="action">Submit
+			<i class="material-icons right">send</i>
+			</button>
 		</div>
 
 </div>
