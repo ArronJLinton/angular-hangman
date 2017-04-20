@@ -4,14 +4,26 @@ body {
     background: rgba(50, 120, 125, 0.35);
 }
 
-.correctGuesses {
-    
+.title,  .guessesRemaining , .displayWord, .userInput  {
+	text-align: center;
 }
-.incorrectGuesses {
-    float: left;
-    margin-left: 80%;
+
+.title {
+	margin-top: 20%;
+}
+
+.correctGuesses {
+    margin-left: 10%;
+    position: absolute;
 }
 
 .displayWord {
-    clear: both;
+	padding: 5% 5%;
+}
+
+.incorrectGuesses {
+/*    float: left;*/
+    margin-left: 80%;
+    position: absolute;
+
 }
